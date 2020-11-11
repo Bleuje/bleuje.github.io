@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Bleuje</title>
+    <link>https://bleuje.github.io/tutorials/</link>
+    <description>Recent content in Tutorials on Bleuje</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://bleuje.github.io/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting started with Processing GIF art</title>
+      <link>https://bleuje.github.io/tutorials/tuto1/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto1/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Noise used in perfect loops</title>
+      <link>https://bleuje.github.io/tutorials/tuto3/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto3/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Periodic functions with offset</title>
+      <link>https://bleuje.github.io/tutorials/tuto2/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto2/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Replacement technique</title>
+      <link>https://bleuje.github.io/tutorials/tuto4/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto4/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+  </channel>
+</rss>

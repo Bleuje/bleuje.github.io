@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bleuje</title>
+    <link>https://bleuje.github.io/</link>
+    <description>Recent content on Bleuje</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://bleuje.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shop</title>
+      <link>https://bleuje.github.io/shop/</link>
+      <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/shop/</guid>
+      <description>Coming soon</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://bleuje.github.io/about/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/about/</guid>
+      <description>I&amp;rsquo;m Etienne Jacob from France. I&amp;rsquo;m 26 years old, engineer from Ecole des Ponts (I have studied computer science, applied maths and data science).</description>
+    </item>
+    
+    <item>
+      <title>Getting started with Processing GIF art</title>
+      <link>https://bleuje.github.io/tutorials/tuto1/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto1/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Noise used in perfect loops</title>
+      <link>https://bleuje.github.io/tutorials/tuto3/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto3/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Periodic functions with offset</title>
+      <link>https://bleuje.github.io/tutorials/tuto2/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto2/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Replacement technique</title>
+      <link>https://bleuje.github.io/tutorials/tuto4/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/tuto4/</guid>
+      <description>How to make a gif</description>
+    </item>
+    
+    <item>
+      <title>Animations</title>
+      <link>https://bleuje.github.io/animations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/animations/</guid>
+      <description>You can check out gifs that I&amp;rsquo;ve been making since 2017 on this tumblr blog named &amp;ldquo;necessary disorder&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>https://bleuje.github.io/tutorials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bleuje.github.io/tutorials/</guid>
+      <description>List of Processing and GIF art tutorials :
+ Getting started with Processing GIF art Periodic functions with offset Noise used in perfect loops Replacement technique  </description>
+    </item>
+    
+  </channel>
+</rss>
