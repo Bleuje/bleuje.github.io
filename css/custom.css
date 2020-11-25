@@ -1,23 +1,20 @@
 * {
-    color: white; 
-    background-color: black;
+    color: #222222; 
+    background-color: #EEEEEE;
 }
 
 a:link {
-  color: #FFFFFF;
-  font-weight: bold;
+  color: #000000;
 }
 
 a:visited {
-  color: #FFFFFF;
-  font-weight: bold;
+  color: #000000;
 }
 
 a:hover {
-  color: #FFFFFF;
+  color: #000000;
 }
 
 a:active {
-  color: #FFFFFF;
-  font-weight: bold;
+  color: #000000;
 } 
