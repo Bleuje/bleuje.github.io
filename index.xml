@@ -5,7 +5,17 @@
     <link>https://bleuje.github.io/</link>
     <description>Recent content on Bleuje</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://bleuje.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Nov 2020 22:09:07 +0100</lastBuildDate><atom:link href="https://bleuje.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome</title>
+      <link>https://bleuje.github.io/posts/hello/</link>
+      <pubDate>Thu, 26 Nov 2020 22:09:07 +0100</pubDate>
+      
+      <guid>https://bleuje.github.io/posts/hello/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Frequently asked questions</title>
       <link>https://bleuje.github.io/faq/</link>

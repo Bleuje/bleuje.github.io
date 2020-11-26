@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bleuje.github.io/</loc>
+    <lastmod>2020-11-26T22:09:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bleuje.github.io/posts/</loc>
+    <lastmod>2020-11-26T22:09:07+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bleuje.github.io/posts/hello/</loc>
+    <lastmod>2020-11-26T22:09:07+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bleuje.github.io/faq/</loc>
     <lastmod>2020-11-26T18:46:05+01:00</lastmod>
   </url>
@@ -19,10 +34,6 @@
   
   <url>
     <loc>https://bleuje.github.io/animations/</loc>
-  </url>
-  
-  <url>
-    <loc>https://bleuje.github.io/</loc>
   </url>
   
   <url>

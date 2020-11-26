@@ -1,6 +1,7 @@
 * {
     color: #181818; 
     background-color: #F9F9F9;
+    overflow: hidden;
 }
 
 a:link {
