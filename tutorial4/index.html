@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no"/>
 
-    <title>Frequently asked questions | Bleuje</title>
+    <title>Replacement technique (Processing) | Bleuje</title>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -159,20 +159,47 @@ if (!doNotTrack) {
         <div id="content" class="content-container">
         
 
-<h1 class="post-title">Frequently asked questions</h1>
+<h1 class="post-title">Replacement technique (Processing)</h1>
     
-    <time>November 26, 2020</time>
+    <time>November 28, 2020</time>
     
     <div>
         <p>
-        <h2 id="what-software-do-you-use-to-make-your-animations">What software do you use to make your animations?</h2>
-<p>My animations are made by programming. Most of them have been made with <a href="https://processing.org/">Processing</a> (Java version). More recently I&rsquo;ve been using <a href="https://www.blender.org/">Blender</a> with python scripting, and <a href="https://openframeworks.cc/">openFrameworks</a> which is similar to Processing but in C++.</p>
-<h2 id="how-to-learn-to-do-this">How to learn to do this?</h2>
-<p>To learn to draw stuff with code, I suggest watching <a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a>. There are videos that explain programming from zero, but if you are already at least a little experienced in programming but not creative coding you might be interested in the <a href="https://www.youtube.com/watch?v=17WoOqgXsRM&amp;list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH">Coding Challenges</a> for example (that&rsquo;s how I started!).</p>
-<p>Other advice I can give is to simply look at documentation and experiment.</p>
-<p>To learn to code gifs and loop techniques you can check out the <a href="https://gist.github.com/beesandbombs">source code</a> from <a href="http://beesandbombs.com/">beesandbombs</a>, and my <a href="/tutorials/">tutorials</a>.</p>
-<h2 id="can-iwe-use-your-gifs-whats-the-pricing">Can I/we use your gifs, what&rsquo;s the pricing?</h2>
-<p>Contact me : etin.jacob (at) gmail.com</p>
+        <p>This is about a perfect loop technique that&rsquo;s probably the one I use the most. It&rsquo;s abstract and general : the idea is to have queue of objects and during the time of one gif loop each object will take the position of next one. That&rsquo;s why I call it &ldquo;replacement&rdquo; technique.</p>
+<p>Basically we have one function like this one :</p>
+<script src="https://gist.github.com/Bleuje/69cd27e43bbb445e69924053992448af.js"></script>
+<p>And to draw all objects with a perfect loop we do :</p>
+<script src="https://gist.github.com/Bleuje/d7fe63e4803de727cd50479a2e1c3083.js"></script>
+<p>K is the number of objects in the queue, I have often used this notation and I keep it in case you see the source code of my older gifs. Here we divide by K assuming p ranges from 0 to 1 in drawThing but that&rsquo;s not necessary. This works because t starts at 0 and ends at 1, so you reach the next index with (i+t) at the end of the loop.</p>
+<p>If drawThing is smoothly 1-periodic (same state at p=0 and p=1) there is no problem, but if not you might just make objects out of sight at p=0 and p=1 to avoid objects that appear or disappear suddenly.</p>
+<p>So that&rsquo;s basically everything about this technique but so far it&rsquo;s astract&hellip; let&rsquo;s take an example.</p>
+<h2 id="an-example-for-the-replacement-technique">An example for the replacement technique</h2>
+<p>The aim is to make an animation like this one :</p>
+<p><img src="/gifs/replacementgiftarget.gif" alt="pie spiral"></p>
+<p>Here K=130 and the drawThing function draws a single pie.</p>
+<p>Let&rsquo;s choose a color palette from <a href="https://colorhunt.co">colorhunt.co</a> :</p>
+<script src="https://gist.github.com/Bleuje/7dd0899960910d7a713033f8085b98ee.js"></script>
+<p>To get the position at parameter p on the spiral one can use those equations :</p>
+<script src="https://gist.github.com/Bleuje/e5025452fa8532ec250d4fd9444c9d1d.js"></script>
+<p>The sqrt(p) gives us a good parametrization with constant speed.</p>
+<p>The idea for the pie design is to use three random values with noise. The ratio between a value and the sum of all values gives us the share of angle of a part.</p>
+<p>Here is some code to get random values that change with p :</p>
+<script src="https://gist.github.com/Bleuje/ae2ecf3524ffc1acf44ba42cb47d8392.js"></script>
+<p>It&rsquo;s basically 1D noise. The pow function is there to sometimes have values that are much larger than the others.</p>
+<p>Here is the code to draw a single pie at p :</p>
+<script src="https://gist.github.com/Bleuje/99211ff8df16dcdae8d5f4b783add620.js"></script>
+<p>Note that some rotation of constant speed alpha is added. The radius r of the pie varies so that pies appear and then disappear (p=0 and p=1).</p>
+<p>The entire code is the following :</p>
+<script src="https://gist.github.com/Bleuje/22304f850ad1b9e94ef1df8f031ddd3d.js"></script>
+<p>And here is a reminder of the result :</p>
+<p><img src="/gifs/replacementgiftarget.gif" alt="pie spiral"></p>
+<hr>
+<p>I often use the replacement technique with object oriented programming, each object having its own queue and random parameters.</p>
+<p><img src="/gifset/2019/gifs/2019_5_constrasthole.gif" alt="holeturn"></p>
+<p>By using it technique and with a queue for each element of a 2D grid, you can achieve loops like this one :</p>
+<p><img src="/gifset/2019/gifs/2019_23_surfaceeffect.gif" alt="surface gif"></p>
+<hr>
+<p><a href="/tutorials/">Tutorials list</a></p>
 
         </p>
     </div>
