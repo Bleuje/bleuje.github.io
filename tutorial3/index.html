@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no"/>
 
-    <title>Making a first gif with Processing | Bleuje</title>
+    <title>Noise propagation (Processing) | Bleuje</title>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -159,43 +159,60 @@ if (!doNotTrack) {
         <div id="content" class="content-container">
         
 
-<h1 class="post-title">Making a first gif with Processing</h1>
+<h1 class="post-title">Noise propagation (Processing)</h1>
     
     <time>November 28, 2020</time>
     
     <div>
         <p>
-        <p>This tutorial is about making a basic perfectly looping gif with Processing : a dot doing a circular loop.</p>
-<p><img src="/gifs/tuto1_firstgif.gif" alt="first gif"></p>
-<p>The trajectory of the black dot has to be described with maths : the angle depends on time and the radius is fixed.
-Hence if the radius of the circle is r, the position at time t can be defined with :</p>
-<script src="https://gist.github.com/Bleuje/6de1e5ffebf633a157b9fcab72a3ef6e.js"></script>
-<p>Note that if t goes from 0 to 1 (which will always be the case), the position at t=0 is the same as t=1.</p>
-<p>So we want to save frames, for example numFrames = 100 frames from t=0 to t=1, but excluding t=1 because this frame is already saved at t=0.
-t can be defined as t = 1.0*frameCount/numFrames. Note that in Processing frameCount is incremented each time Processing&rsquo;s draw() function is called (it equals 1 on first call).</p>
-<p>Here is the entire code to save frames :</p>
-<script src="https://gist.github.com/Bleuje/45a11c1a0c67d5e698f6c78a4928b889.js"></script>
-<p>saveFrame(&ldquo;fr###.gif&rdquo;); saves frames with a number equal to frameCount and with leading zeros.</p>
-<p>In this tutorial I used Processing but you can obviously do the same with your favourite programming tool that&rsquo;s able to draw and save frames.</p>
-<h2 id="how-to-make-an-animated-gif-from-the-frames">How to make an animated gif from the frames</h2>
-<p>There are many ways to make animated gifs from frames.</p>
-<p>I personally use the command line tool <a href="https://www.lcdf.org/gifsicle/">gifsicle</a>.</p>
-<p>Once you have it just run this in your frames folder to make an animated gif :</p>
-<pre><code>gifsicle --delay=2 --loop fr*.gif &gt; mygifname.gif
-</code></pre><p>The delay is in hundredth of second, so here it makes a 50 fps gif.</p>
-<p>As far as I know gifsicle only works from .gif frames, but there are lots of other ways to make animated gifs from a set of frames : ffmpeg, GIMP, Photoshop, ezgif.com&hellip;</p>
-<p>With gifsicle you might want to add the &ldquo;optimize&rdquo; flag especially if you want to get a very long gif with few changes between frames.</p>
-<pre><code>gifsicle --delay=2 --loop --optimize fr*.gif &gt; mygifname.gif
-</code></pre><p>For file size optimization I recommend using this website : <a href="https://ezgif.com/optimize">ezgif</a></p>
-<p>If this isn&rsquo;t enough, to have small file sizes you can try ;</p>
+        <p>This tutorial is a perfect loop technique that&rsquo;s similar to periodic function propagation from the <a href="/tutorial2/">previous tutorial</a> but using noise and more advanced technique. I call it &ldquo;noise propagation&rdquo;.</p>
+<p>Those things are added to the previous technique :</p>
 <ul>
-<li>having fewer different colors</li>
-<li>having fewer changes between successive frames</li>
-<li>having smaller resolution</li>
-<li>having less frames</li>
+<li>using noise to get a smooth periodic function</li>
+<li>using more dimensions of noise to get variation through space</li>
 </ul>
+<p>The goal is to explain what&rsquo;s behind an animation like this one :</p>
+<p><img src="/gifs/tuto3_target.gif" alt="radial 4d noise propagation"></p>
+<p>First of all if you&rsquo;re not familiar with noise in creative coding you can for example learn about it on the Coding Train (<a href="https://www.youtube.com/watch?v=Qf4dIN99e2w&amp;list=PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD">video about Perlin Noise</a>, <a href="https://youtu.be/Lv9gyZZJPE0">video about openSimplexNoise</a> ).</p>
+<p>I use OpenSimplex noise in Java by Kurt Spencer. It has better quality than Processing&rsquo;s Perlin noise and 4D implementation that will be useful here.</p>
+<p>To use it you can paste the code <a href="https://gist.github.com/Bleuje/fce86ef35b66c4a2b6a469b27163591e">from here</a> in a Processing tab of your sketch. The reason I give this reupload from me of the code and not the original code is that I made few changes so that you can just paste it in a tab. Otherwise you need the tab to be a .java I think.</p>
+<p>To use OpenSimplex noise in our sketch we can do this :</p>
+<script src="https://gist.github.com/Bleuje/42e3f8db175c7b352d01e0f4ff6d5c1a.js"></script>
+<p>Here I fixed the noise seed at 12345, you can use what you want.</p>
+<p>OpenSimplex noise implements noise in 2D, 3D and 4D, but 1D can be obtained simply by fixing the value in another dimension :</p>
+<script src="https://gist.github.com/Bleuje/13b707a8fa89f415bc0af7b3b4700da4.js"></script>
+<h2 id="the-loop-technique">The loop technique</h2>
+<p>We want to use noise to get a smooth random periodic function. This can be obtained with a circle in 2D noise :</p>
+<p>In the following picture 2D noise is visualized with brightness and the path of a circle is drawn : this is where we take our values to get a periodic function.</p>
+<p><img src="/tutopics/2dnoisecircle.png" alt="2d noise circle"></p>
+<p>The values of the periodic function we obtain can look like this :</p>
+<p><img src="/tutopics/periodicnoisefunction.png" alt="noisy periodic function"></p>
+<p>The larger the radius of the circle, the more variation within one period we will have.</p>
+<p>So here is an implementation of noisy periodic function, we fix the radius at 1.3.</p>
+<script src="https://gist.github.com/Bleuje/9cfca7312234d4271b1efe407c556e1b.js"></script>
+<p>We&rsquo;re going to displace small transparent dots with it. There will be horizontal and vertical displacement for each dot, so we&rsquo;re going to need two independant noise values. One way to solve this problem is to have two instances of OpenSimplexNoise, for example noise1 and noise2, constructed from different seeds. I don&rsquo;t do this : I simply take values from a single noise instance far away from each other for things that I want independant.
+So we can rewrite our noisy periodic function like this :</p>
+<script src="https://gist.github.com/Bleuje/9a64f5f3a97846a3b91f5e8cb9dc839d.js"></script>
+<p>Here is the code to draw all transparent dots and animate them similarly to the <a href="/tutorial2/">previous tutorial</a> :</p>
+<script src="https://gist.github.com/Bleuje/5b786d73d9a9b28e55aaa8334a171404.js"></script>
+<p>We take a radial offset function :</p>
+<script src="https://gist.github.com/Bleuje/c260a6e8ffd1e7d0cc9fb5d6a494688b.js"></script>
+<p>That gives us something like this (the entire code is given later) :</p>
+<p><img src="/gifs/tuto3_target0.gif" alt="radial 4d noise propagation"></p>
+<p>So far we used 2D noise in our periodic function. We can use the two remaining dimensions to smoothly and randomly change the periodic function through 2D space.</p>
+<p>Therefore it becomes :</p>
+<script src="https://gist.github.com/Bleuje/83f8607f77cd7a849d588577a6a45be7.js"></script>
+<p>&ldquo;scl&rdquo; stands for &ldquo;scale&rdquo; : when one increases this parameter one increases variations.</p>
+<p>Here is the entire code to generate the gif frames :</p>
+<script src="https://gist.github.com/Bleuje/0ee88547c273b6ae49ae69527c13e611.js"></script>
+<p>And the result was shown at the beginning of the tutorial.</p>
+<p><img src="/gifs/tuto3_target.gif" alt="radial 4d noise propagation"></p>
+<p>You can play with all sorts of offsets, this applies to 3D stuff and the value of the periodic function can be used for something else than displacement.</p>
+<p>This technique can lead to a gif like this one (3D displacement here) :</p>
+<p><img src="/gifset/2018/gifs/2018_63_surfacepropagation.gif" alt="surface propagation"></p>
+<p>Thanks for reading, I hope you learned something or found this interesting!</p>
 <hr>
-<p><a href="/tutorials/">Tutorials list</a> <a href="/tutorial2/">Next tutorial</a></p>
+<p><a href="/tutorials/">Tutorials list</a></p>
 
         </p>
     </div>

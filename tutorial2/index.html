@@ -183,17 +183,17 @@ if (!doNotTrack) {
 <p><img src="/gifs/tuto2_radialoffset.gif" alt="radialoffset gif"></p>
 <p>Here the periodic function that controls the size of black dots is :</p>
 <script src="https://gist.github.com/Bleuje/4b615bf45691ba6d87a136889ac993a4.js"></script>
-<p>The interval [-1,1] of the sinusoid is mapped to [2,8]. The functions map, lerp and constrain are in my opinion essential in creative coding so I strongly advice to learn about then if you haven&rsquo;t already.</p>
+<p>The interval [-1,1] of the sinusoid is mapped to [2,8]. The functions map, lerp and constrain are in my opinion essential in creative coding so I strongly advice to learn about them if you haven&rsquo;t already.</p>
 <p>And the (radial) offset is :</p>
 <script src="https://gist.github.com/Bleuje/f24978a2163d3ca5ee4584f1cb60573b.js"></script>
 <p>Note that when the offset is the same modulo 1 we will get the same value of the periodic function at the same time, so here the pattern will be circles repeating every 100 pixels (x and y are positions in pixels).</p>
 <p>The code to draw the black dots is the following :</p>
 <script src="https://gist.github.com/Bleuje/242ac65636e19ae7053a968089e9d7f6.js"></script>
-<p>The important line that means do the same thing with different offset is :</p>
+<p>The important line that means &ldquo;do the same thing with different offset&rdquo; is :</p>
 <script src="https://gist.github.com/Bleuje/c1771590fce94449c49a1cc8580902b3.js"></script>
 <p>There is a minus so that things propagate towards increasing offset values.</p>
 <p>Here I made a function to compute the offset for the sake of clarity of the tutorial but usually I just compute the offset in a variable before using it.</p>
-<p>You can use any offset function, it will loop perfectly.</p>
+<p><strong>You can use any offset function, it will loop perfectly.</strong></p>
 <p>Here is the entire code to generate gif frames :</p>
 <script src="https://gist.github.com/Bleuje/8b643862583669b100290d009c41ab4a.js"></script>
 <h2 id="more-examples">More examples</h2>
@@ -214,6 +214,9 @@ if (!doNotTrack) {
 <p>Using noise (Perlin/simplex/openSimplex noise) as offset can be interesting.
 For example in the following gif (one of my early gifs) each object oscillates between two positions, and there is 2D noise as offset.</p>
 <p><img src="/gifs/echotuto.gif" alt="2dnoise offset gif"></p>
+<p>Here the examples are in 2D, this also works for 3D stuff.</p>
+<hr>
+<p><a href="/tutorials/">Tutorials list</a> <a href="/tutorial3/">Next tutorial</a></p>
 
         </p>
     </div>
