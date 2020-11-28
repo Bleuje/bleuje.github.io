@@ -172,7 +172,7 @@ if (!doNotTrack) {
 <li>What to do with the periodic function</li>
 <li>An offset function</li>
 </ol>
-<p>All objects have the same periodic motion but with an offset, with can give patterns and a feeling of propagation. Here the periodic function has to be 1-periodic because time goes from 0 to 1.</p>
+<p>All objects have the same periodic motion or change but with an offset, which can give patterns and a feeling of propagation. Here the periodic function has to be 1-periodic because time goes from 0 to 1.</p>
 <p>For example if we take</p>
 <ol>
 <li>Periodic function : Sinusoid</li>
@@ -183,7 +183,7 @@ if (!doNotTrack) {
 <p><img src="/gifs/tuto2_radialoffset.gif" alt="radialoffset gif"></p>
 <p>Here the periodic function that controls the size of black dots is :</p>
 <script src="https://gist.github.com/Bleuje/4b615bf45691ba6d87a136889ac993a4.js"></script>
-<p>The interval [-1,1] of the sinusoid is mapped to [2,8]. The functions map, lerp and constrain are in my opinion essential in creative coding so I strongly advice to learn about them if you haven&rsquo;t already.</p>
+<p>The interval [-1,1] of the sinusoid is mapped to [2,8]. The functions map, lerp and constrain (sometimes called clamp outside Processing) are in my opinion essential in creative coding so I strongly advice to learn about them if you haven&rsquo;t already.</p>
 <p>And the (radial) offset is :</p>
 <script src="https://gist.github.com/Bleuje/f24978a2163d3ca5ee4584f1cb60573b.js"></script>
 <p>Note that when the offset is the same modulo 1 we will get the same value of the periodic function at the same time, so here the pattern will be circles repeating every 100 pixels (x and y are positions in pixels).</p>
@@ -207,7 +207,7 @@ if (!doNotTrack) {
 <p><img src="/gifs/tuto2_rotatinglines2.gif" alt="rotatinglines gif"></p>
 <p>The periodic function and the offset were :</p>
 <script src="https://gist.github.com/Bleuje/d65ea7c42537e2e19c54b543cfb585f7.js"></script>
-<p>The code to draw code lines :</p>
+<p>The code to draw lines :</p>
 <script src="https://gist.github.com/Bleuje/a10041b10df7d4192b856eadfb67d7d4.js"></script>
 <p>The entire code :</p>
 <script src="https://gist.github.com/Bleuje/0e1e4c9c8facf5670cb8f814107678d7.js"></script>
