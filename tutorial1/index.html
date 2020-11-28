@@ -2,13 +2,12 @@
 
 <html lang="en-us">
     <head>
-	<meta name="generator" content="Hugo 0.79.0" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no"/>
 
-    <title>Bleuje</title>
+    <title>Making a first gif with Processing | Bleuje</title>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,8 +28,6 @@
     
     <link type="text/css" rel="stylesheet" href="/css/custom.css">
  
-    
-    <link rel="alternate" type="application/rss+xml" href="https://bleuje.github.io/index.xml" title="Bleuje" />
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -161,36 +158,52 @@ if (!doNotTrack) {
 
         <div id="content" class="content-container">
         
-<div class = "article-content">
-        
-        
-        
-        
-        <article>
-            <h2>
-                <a href="https://bleuje.github.io/posts/hello/">
-                    Welcome
-                </a>
-            </h2>
-            <div>
-                <p>Here&rsquo;s a place to find my animations, information and tutorials about them, and maybe plots and stills in the future.</p>
-                
-            </div>
-            <div class="post-footer">
-            <time>November 26, 2020</time>
 
-            
-            
-            </div> 
-           
-        </article>
+<h1 class="post-title">Making a first gif with Processing</h1>
+    
+    <time>November 28, 2020</time>
+    
+    <div>
+        <p>
+        <p>This tutorial is about making a basic perfectly looping gif with Processing : a dot doing a circular loop.</p>
+<p><img src="/gifs/tuto1_firstgif.gif" alt="first gif"></p>
+<p>The trajectory of the black dot has to be described with maths : the angle depends on time and the radius is fixed.
+Hence if the radius of the circle is r, the position at time t can be defined with :</p>
+<script src="https://gist.github.com/Bleuje/6de1e5ffebf633a157b9fcab72a3ef6e.js"></script>
+<p>Note that if t goes from 0 to 1 (which will always be the case), the position at t=0 is the same as t=1.</p>
+<p>So we want to save frames, for example numFrames = 100 frames from t=0 to t=1, but excluding t=1 because this frame is already saved at t=0.
+t can be defined as t = 1.0*frameCount/numFrames. Note that in Processing frameCount is incremented each time Processing&rsquo;s draw() function is called (it equals 1 on first call).</p>
+<p>Here is the entire code to save frames :</p>
+<script src="https://gist.github.com/Bleuje/45a11c1a0c67d5e698f6c78a4928b889.js"></script>
+<p>saveFrame(&ldquo;fr###.gif&rdquo;); saves frames with a number equal to frameCount and with leading zeros.</p>
+<h2 id="how-to-make-an-animated-gif-from-the-frames">How to make an animated gif from the frames</h2>
+<p>There are many ways to make animated gifs from frames.</p>
+<p>I personally use the command line tool <a href="https://www.lcdf.org/gifsicle/">gifsicle</a>.</p>
+<p>Once you have it just run this in your frames folder to make an animated gif :</p>
+<pre><code>gifsicle --delay=2 --loop fr*.gif &gt; mygifname.gif
+</code></pre><p>The delay is in hundredth of second, so here it makes a 50 fps gif.</p>
+<p>As far as I know gifsicle only works from .gif frames, but there are lots of other ways to make animated gifs from a set of frames : ffmpeg, GIMP, Photoshop, ezgif.com&hellip;</p>
+<p>With gifsicle you might want to add the &ldquo;optimize&rdquo; flag especially if you want to get a very long gif with few changes between frames.</p>
+<pre><code>gifsicle --delay=2 --loop --optimize fr*.gif &gt; mygifname.gif
+</code></pre><p>For file size optimization I recommend using this website : <a href="https://ezgif.com/optimize">ezgif</a></p>
+<p>If this isn&rsquo;t enough, to have small file sizes you can try ;</p>
+<ul>
+<li>having fewer different colors</li>
+<li>having fewer changes between successive frames</li>
+<li>having smaller resolution</li>
+<li>having less frames</li>
+</ul>
+
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
         
     </div>
-        
-        <div class="paginator">
-        
-        
-    </div>
+
 
         
 
