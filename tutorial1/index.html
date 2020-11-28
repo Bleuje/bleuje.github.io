@@ -171,7 +171,7 @@ if (!doNotTrack) {
 Hence if the radius of the circle is r, the position at time t can be defined with :</p>
 <script src="https://gist.github.com/Bleuje/6de1e5ffebf633a157b9fcab72a3ef6e.js"></script>
 <p>Note that if t goes from 0 to 1 (which will always be the case), the position at t=0 is the same as t=1.</p>
-<p>So we want to save frames, for example numFrames = 100 frames from t=0 to t=1, but excluding t=1 because this frame is already saved at t=0.
+<p>So we want to save frames, for example numFrames = 100 frames from t=0 to t=1, but excluding t=1 because this frame is already saved at t=0 (or we take t=1 but not t=0&hellip; in the code below we&rsquo;ll actually take the t=1 frame).
 t can be defined as t = 1.0*frameCount/numFrames. Note that in Processing frameCount is incremented each time Processing&rsquo;s draw() function is called (it equals 1 on first call).</p>
 <p>Here is the entire code to save frames :</p>
 <script src="https://gist.github.com/Bleuje/45a11c1a0c67d5e698f6c78a4928b889.js"></script>
