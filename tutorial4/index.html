@@ -171,7 +171,7 @@ if (!doNotTrack) {
 <p>And to draw all objects with a perfect loop we do :</p>
 <script src="https://gist.github.com/Bleuje/d7fe63e4803de727cd50479a2e1c3083.js"></script>
 <p>K is the number of objects in the queue, I have often used this notation and I keep it in case you see the source code of my older gifs. Here we divide by K assuming p ranges from 0 to 1 in drawThing but that&rsquo;s not necessary. This works because t starts at 0 and ends at 1, so you reach the next index with (i+t) at the end of the loop.</p>
-<p>If drawThing is smoothly 1-periodic (same state at p=0 and p=1) there is no problem, but if not you might just make objects out of sight at p=0 and p=1 to avoid objects that appear or disappear suddenly.</p>
+<p>If drawThing has same state at p=0 and p=1 there is no problem, but if not you might just make objects out of sight at p=0 and p=1 to avoid objects that appear or disappear suddenly.</p>
 <p>So that&rsquo;s basically everything about this technique but so far it&rsquo;s astract&hellip; let&rsquo;s take an example.</p>
 <h2 id="an-example-for-the-replacement-technique">An example for the replacement technique</h2>
 <p>The aim is to make an animation like this one :</p>
