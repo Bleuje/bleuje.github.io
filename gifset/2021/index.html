@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bleuje / 2021 gifs</title>
+
+<script src="../splide.min.js"></script>
+<link rel="stylesheet" href="../splide.min.css">
+<style>
+* {
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-size: 21px;
+	font-family: "Lucida Console", Courier, monospace;
+}
+.center {/*
+  display: block;*/
+  margin-left: auto;
+  margin-right: auto;
+  height: 79%;
+}
+</style>
+  </head>
+  <body>
+
+Showing animations from <b>2021</b> /// Other years : <a href="../2020/">2020</a> <a href="../2019/">2019</a> <a href="../2018/">2018</a> <a href="../2017/">2017</a> /// <a href="../../">Back to home page</a>
+
+<br>
+<br>
+
+<div class="splide">
+	<div class="splide__arrows">
+			<button class="splide__arrow splide__arrow--prev">
+				<<
+			</button>
+			<button class="splide__arrow splide__arrow--next">
+				>>
+			</button>
+	</div>
+	<div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide"><img src="gifs/2021_1_rollinggrid.gif" alt="2021_1_rollinggrid" class="center"></li>
+			<li class="splide__slide"><img src="gifs/2021_2_circlespush.gif" alt="2021_2_circlespush" class="center"></li>
+			<li class="splide__slide"><img src="gifs/2021_3_doublespiral.gif" alt="2021_3_doublespiral" class="center"></li>
+		</ul>
+	</div>
+</div>
+
+<script>
+	new Splide( '.splide', {
+	type     : 'loop',
+	autoHeight: true,
+	focus    : 'center',
+	perPage: 1.7,
+} ).mount();
+</script>
+
+  </body>
+</html>
+
+
+
+
